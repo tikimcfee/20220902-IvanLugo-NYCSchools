@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B725163F28C020A80094F29B /* NYSCV_Unit_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725163E28C020A80094F29B /* NYSCV_Unit_Tests.swift */; };
+		B725164628C020EC0094F29B /* TestBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725164528C020EC0094F29B /* TestBundle.swift */; };
 		B7B46B1B28C019F90004CA2D /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B1A28C019F90004CA2D /* Tests_iOS.swift */; };
 		B7B46B1D28C019F90004CA2D /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B1C28C019F90004CA2D /* Tests_iOSLaunchTests.swift */; };
-		B7B46B2728C019F90004CA2D /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B2628C019F90004CA2D /* Tests_macOS.swift */; };
 		B7B46B2928C019F90004CA2D /* Tests_macOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B2828C019F90004CA2D /* Tests_macOSLaunchTests.swift */; };
 		B7B46B2A28C019F90004CA2D /* NYCSVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B0228C019F80004CA2D /* NYCSVApp.swift */; };
 		B7B46B2B28C019F90004CA2D /* NYCSVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B0228C019F80004CA2D /* NYCSVApp.swift */; };
@@ -17,9 +18,21 @@
 		B7B46B2D28C019F90004CA2D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B0328C019F80004CA2D /* ContentView.swift */; };
 		B7B46B2E28C019F90004CA2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7B46B0428C019F90004CA2D /* Assets.xcassets */; };
 		B7B46B2F28C019F90004CA2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7B46B0428C019F90004CA2D /* Assets.xcassets */; };
+		B7B46B4028C01A5C0004CA2D /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B3F28C01A5C0004CA2D /* SampleData.swift */; };
+		B7B46B4128C01A5C0004CA2D /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B3F28C01A5C0004CA2D /* SampleData.swift */; };
+		B7B46B4328C01B4F0004CA2D /* s3k6-pzi2.json in Resources */ = {isa = PBXBuildFile; fileRef = B7B46B4228C01B4F0004CA2D /* s3k6-pzi2.json */; };
+		B7B46B4428C01B4F0004CA2D /* s3k6-pzi2.json in Resources */ = {isa = PBXBuildFile; fileRef = B7B46B4228C01B4F0004CA2D /* s3k6-pzi2.json */; };
+		B7B46B4628C01E400004CA2D /* Tests_NYCSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B4528C01E400004CA2D /* Tests_NYCSV.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B725164028C020A80094F29B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B7B46AFD28C019F80004CA2D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B7B46B0E28C019F90004CA2D;
+			remoteInfo = "NYCSV (macOS)";
+		};
 		B7B46B1728C019F90004CA2D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B7B46AFD28C019F80004CA2D /* Project object */;
@@ -37,6 +50,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B725163C28C020A80094F29B /* NYSCV Unit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NYSCV Unit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B725163E28C020A80094F29B /* NYSCV_Unit_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYSCV_Unit_Tests.swift; sourceTree = "<group>"; };
+		B725164528C020EC0094F29B /* TestBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBundle.swift; sourceTree = "<group>"; };
 		B7B46B0228C019F80004CA2D /* NYCSVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSVApp.swift; sourceTree = "<group>"; };
 		B7B46B0328C019F80004CA2D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B7B46B0428C019F90004CA2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,11 +63,20 @@
 		B7B46B1A28C019F90004CA2D /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
 		B7B46B1C28C019F90004CA2D /* Tests_iOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOSLaunchTests.swift; sourceTree = "<group>"; };
 		B7B46B2228C019F90004CA2D /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B7B46B2628C019F90004CA2D /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		B7B46B2828C019F90004CA2D /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		B7B46B3F28C01A5C0004CA2D /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
+		B7B46B4228C01B4F0004CA2D /* s3k6-pzi2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "s3k6-pzi2.json"; sourceTree = "<group>"; };
+		B7B46B4528C01E400004CA2D /* Tests_NYCSV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_NYCSV.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B725163928C020A80094F29B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B7B46B0628C019F90004CA2D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -83,6 +108,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B725163D28C020A80094F29B /* NYSCV Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B725164528C020EC0094F29B /* TestBundle.swift */,
+				B725163E28C020A80094F29B /* NYSCV_Unit_Tests.swift */,
+			);
+			path = "NYSCV Unit Tests";
+			sourceTree = "<group>";
+		};
 		B7B46AFC28C019F80004CA2D = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +124,7 @@
 				B7B46B1028C019F90004CA2D /* macOS */,
 				B7B46B1928C019F90004CA2D /* Tests iOS */,
 				B7B46B2528C019F90004CA2D /* Tests macOS */,
+				B725163D28C020A80094F29B /* NYSCV Unit Tests */,
 				B7B46B0A28C019F90004CA2D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -97,6 +132,7 @@
 		B7B46B0128C019F80004CA2D /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				B7B46B3E28C01A460004CA2D /* SampleData */,
 				B7B46B0228C019F80004CA2D /* NYCSVApp.swift */,
 				B7B46B0328C019F80004CA2D /* ContentView.swift */,
 				B7B46B0428C019F90004CA2D /* Assets.xcassets */,
@@ -111,6 +147,7 @@
 				B7B46B0F28C019F90004CA2D /* NYCSV.app */,
 				B7B46B1628C019F90004CA2D /* Tests iOS.xctest */,
 				B7B46B2228C019F90004CA2D /* Tests macOS.xctest */,
+				B725163C28C020A80094F29B /* NYSCV Unit Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -135,15 +172,42 @@
 		B7B46B2528C019F90004CA2D /* Tests macOS */ = {
 			isa = PBXGroup;
 			children = (
-				B7B46B2628C019F90004CA2D /* Tests_macOS.swift */,
+				B7B46B4528C01E400004CA2D /* Tests_NYCSV.swift */,
 				B7B46B2828C019F90004CA2D /* Tests_macOSLaunchTests.swift */,
 			);
 			path = "Tests macOS";
 			sourceTree = "<group>";
 		};
+		B7B46B3E28C01A460004CA2D /* SampleData */ = {
+			isa = PBXGroup;
+			children = (
+				B7B46B3F28C01A5C0004CA2D /* SampleData.swift */,
+				B7B46B4228C01B4F0004CA2D /* s3k6-pzi2.json */,
+			);
+			path = SampleData;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B725163B28C020A80094F29B /* NYSCV Unit Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B725164228C020A80094F29B /* Build configuration list for PBXNativeTarget "NYSCV Unit Tests" */;
+			buildPhases = (
+				B725163828C020A80094F29B /* Sources */,
+				B725163928C020A80094F29B /* Frameworks */,
+				B725163A28C020A80094F29B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B725164128C020A80094F29B /* PBXTargetDependency */,
+			);
+			name = "NYSCV Unit Tests";
+			productName = "NYSCV Unit Tests";
+			productReference = B725163C28C020A80094F29B /* NYSCV Unit Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B7B46B0828C019F90004CA2D /* NYCSV (iOS) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B7B46B3228C019F90004CA2D /* Build configuration list for PBXNativeTarget "NYCSV (iOS)" */;
@@ -224,6 +288,10 @@
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					B725163B28C020A80094F29B = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = B7B46B0E28C019F90004CA2D;
+					};
 					B7B46B0828C019F90004CA2D = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
@@ -257,16 +325,25 @@
 				B7B46B0E28C019F90004CA2D /* NYCSV (macOS) */,
 				B7B46B1528C019F90004CA2D /* Tests iOS */,
 				B7B46B2128C019F90004CA2D /* Tests macOS */,
+				B725163B28C020A80094F29B /* NYSCV Unit Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B725163A28C020A80094F29B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B7B46B0728C019F90004CA2D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B7B46B2E28C019F90004CA2D /* Assets.xcassets in Resources */,
+				B7B46B4328C01B4F0004CA2D /* s3k6-pzi2.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7B46B2F28C019F90004CA2D /* Assets.xcassets in Resources */,
+				B7B46B4428C01B4F0004CA2D /* s3k6-pzi2.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,11 +373,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B725163828C020A80094F29B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B725163F28C020A80094F29B /* NYSCV_Unit_Tests.swift in Sources */,
+				B725164628C020EC0094F29B /* TestBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B7B46B0528C019F90004CA2D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B7B46B2C28C019F90004CA2D /* ContentView.swift in Sources */,
+				B7B46B4028C01A5C0004CA2D /* SampleData.swift in Sources */,
 				B7B46B2A28C019F90004CA2D /* NYCSVApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7B46B2D28C019F90004CA2D /* ContentView.swift in Sources */,
+				B7B46B4128C01A5C0004CA2D /* SampleData.swift in Sources */,
 				B7B46B2B28C019F90004CA2D /* NYCSVApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,13 +416,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7B46B2928C019F90004CA2D /* Tests_macOSLaunchTests.swift in Sources */,
-				B7B46B2728C019F90004CA2D /* Tests_macOS.swift in Sources */,
+				B7B46B4628C01E400004CA2D /* Tests_NYCSV.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B725164128C020A80094F29B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B7B46B0E28C019F90004CA2D /* NYCSV (macOS) */;
+			targetProxy = B725164028C020A80094F29B /* PBXContainerItemProxy */;
+		};
 		B7B46B1828C019F90004CA2D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B7B46B0828C019F90004CA2D /* NYCSV (iOS) */;
@@ -347,6 +441,44 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		B725164328C020A80094F29B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XR2HQNSZ68;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lugodev.NYSCV-Unit-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NYCSV.app/Contents/MacOS/NYCSV";
+			};
+			name = Debug;
+		};
+		B725164428C020A80094F29B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XR2HQNSZ68;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lugodev.NYSCV-Unit-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NYCSV.app/Contents/MacOS/NYCSV";
+			};
+			name = Release;
+		};
 		B7B46B3028C019F90004CA2D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -655,6 +787,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B725164228C020A80094F29B /* Build configuration list for PBXNativeTarget "NYSCV Unit Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B725164328C020A80094F29B /* Debug */,
+				B725164428C020A80094F29B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B7B46B0028C019F80004CA2D /* Build configuration list for PBXProject "NYCSV" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
