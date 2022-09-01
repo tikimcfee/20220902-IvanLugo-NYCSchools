@@ -5,8 +5,17 @@
 //  Created by Ivan Lugo on 8/31/22.
 //
 
+import Foundation
+import XCTest
+@testable import NYCSV
+
 class TestBundle {
-    
+    func loadData(for data: SampleData.BundleFile) throws -> Data {
+        let maybeURL: URL? = SampleData.url(for: data)
+        let fileURL = try XCTUnwrap(maybeURL, "Must have sample data in main bundle")
+        print("Reading from: \(fileURL.lastPathComponent)")
+        return try Data(contentsOf: fileURL)
+    }
 }
 
 let lineSpace = Array(repeating: "\n", count: 3).joined()

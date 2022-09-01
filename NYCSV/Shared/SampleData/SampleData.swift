@@ -12,6 +12,7 @@ struct SampleData {
     
     enum BundleFile: String {
         case schoolList = "s3k6-pzi2"
+        case scoreList = "f9bf-2cp4"
     }
     
     static func url(for file: BundleFile) -> URL? {
