@@ -9,9 +9,13 @@ import SwiftUI
 
 struct NYCSVRoot: View {
     @EnvironmentObject var appState: NYCSVAppState
+    @Environment(\.colorScheme) private var colorScheme
     
     var body: some View {
         buildViewForState()
+        #if os(macOS)
+            .frame(minWidth: 640, maxWidth: 1024)
+        #endif
     }
     
     @ViewBuilder
@@ -37,16 +41,19 @@ struct NYCSVRoot: View {
     func loadedView(_ pairList: [SchoolMetaPair]) -> some View {
         List {
             ForEach(pairList) { metaPair in
-                VStack {
+                VStack(alignment: .leading) {
                     HStack {
-                        Text("Name: ")
-                        Spacer()
                         Text(metaPair.school.school_name)
                     }
                     Text(metaPair.school.city).fontWeight(.light)
                     Text(metaPair.school.website).fontWeight(.light)
                     Text(metaPair.school.overview_paragraph).fontWeight(.light).padding(4)
                 }
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 4.0)
+                        .strokeBorder(Color.gray)
+                )
             }
         }.listStyle(.plain)
     }

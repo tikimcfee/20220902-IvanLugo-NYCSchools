@@ -17,7 +17,8 @@ class SchoolMetaFetcher {
         case multiFetch([Error])
     }
     
-    typealias Receiver = (Result<SchoolMetaMap, SchoolMetaFetcher.Failure>) -> Void
+    typealias FetchResult = Result<SchoolMetaMap, SchoolMetaFetcher.Failure>
+    typealias Receiver = (FetchResult) -> Void
     let networking: Networking
     let receiver: Receiver
     

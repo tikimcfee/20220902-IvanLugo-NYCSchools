@@ -27,16 +27,22 @@ class NYCSVAppState: ObservableObject {
     func startRootLoad() {
         rootLoadState = .loading
         SchoolMetaFetcher(networking) { [weak self] result in
-            switch result {
-            case let .success(map):
-                print("Received map with keys: \(map.keys.count)")
-                self?.rootLoadState = .loaded(map.values.sorted(by: { $0 < $1 }))
-                
-            case let .failure(error):
-                print("Fetch request failed")
-                self?.rootLoadState = .error(error)
+            DispatchQueue.main.async {
+                self?.initialLoadCompleted(result)
             }
         }.start()
+    }
+    
+    private func initialLoadCompleted(_ result: SchoolMetaFetcher.FetchResult) {
+        switch result {
+        case let .success(map):
+            print("Received map with keys: \(map.keys.count)")
+            rootLoadState = .loaded(map.values.sorted(by: { $0 < $1 }))
+            
+        case let .failure(error):
+            print("Fetch request failed")
+            rootLoadState = .error(error)
+        }
     }
 }
 
