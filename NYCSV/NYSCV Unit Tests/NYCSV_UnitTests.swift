@@ -8,7 +8,7 @@
 import XCTest
 @testable import NYCSV
 
-class NYSCV_Unit_Tests: XCTestCase {
+class NYCSV_UnitTests: XCTestCase {
     
     var bundle: TestBundle!
 

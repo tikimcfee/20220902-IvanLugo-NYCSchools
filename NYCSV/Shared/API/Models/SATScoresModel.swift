@@ -9,7 +9,7 @@ import Foundation
 
 struct SATScoreModel: ListDecodable {
     // Matching identifier to school
-    let dbn: String
+    let dbn: DBNID
     
     // These are displayable numbers, and I'm deciding to
     // parse them for math later if I need to.
