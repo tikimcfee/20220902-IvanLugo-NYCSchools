@@ -13,7 +13,6 @@ typealias DBNID = String
 // Reused coders
 struct Modeling {
     private init() { }
-    static let defaultEncoder = JSONEncoder()
     static let defaultDecoder = JSONDecoder()
 }
 
