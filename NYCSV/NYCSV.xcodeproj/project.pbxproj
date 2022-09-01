@@ -26,12 +26,14 @@
 		B725166028C03A090094F29B /* NYCSV_NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725165F28C03A090094F29B /* NYCSV_NetworkTests.swift */; };
 		B725166428C03B110094F29B /* RequestVending.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725166128C03B0C0094F29B /* RequestVending.swift */; };
 		B725166528C03B110094F29B /* RequestVending.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725166128C03B0C0094F29B /* RequestVending.swift */; };
-		B725166728C043D90094F29B /* MultiFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725166628C043D90094F29B /* MultiFetch.swift */; };
-		B725166828C043D90094F29B /* MultiFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725166628C043D90094F29B /* MultiFetch.swift */; };
+		B725166728C043D90094F29B /* SchoolMetaFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725166628C043D90094F29B /* SchoolMetaFetcher.swift */; };
+		B725166828C043D90094F29B /* SchoolMetaFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725166628C043D90094F29B /* SchoolMetaFetcher.swift */; };
 		B725166C28C04DEA0094F29B /* NYCSVRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725166B28C04DEA0094F29B /* NYCSVRoot.swift */; };
 		B725166D28C04DEA0094F29B /* NYCSVRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725166B28C04DEA0094F29B /* NYCSVRoot.swift */; };
 		B725166F28C052B20094F29B /* NYCSVAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725166E28C052B20094F29B /* NYCSVAppState.swift */; };
 		B725167028C052B20094F29B /* NYCSVAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725166E28C052B20094F29B /* NYCSVAppState.swift */; };
+		B725168828C16CCF0094F29B /* NYCSVListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725168728C16CCF0094F29B /* NYCSVListView.swift */; };
+		B725168928C16CCF0094F29B /* NYCSVListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725168728C16CCF0094F29B /* NYCSVListView.swift */; };
 		B7B46B1B28C019F90004CA2D /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B1A28C019F90004CA2D /* Tests_iOS.swift */; };
 		B7B46B1D28C019F90004CA2D /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B1C28C019F90004CA2D /* Tests_iOSLaunchTests.swift */; };
 		B7B46B2928C019F90004CA2D /* Tests_macOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B2828C019F90004CA2D /* Tests_macOSLaunchTests.swift */; };
@@ -83,9 +85,10 @@
 		B725165C28C0353F0094F29B /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		B725165F28C03A090094F29B /* NYCSV_NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSV_NetworkTests.swift; sourceTree = "<group>"; };
 		B725166128C03B0C0094F29B /* RequestVending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestVending.swift; sourceTree = "<group>"; };
-		B725166628C043D90094F29B /* MultiFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiFetch.swift; sourceTree = "<group>"; };
+		B725166628C043D90094F29B /* SchoolMetaFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolMetaFetcher.swift; sourceTree = "<group>"; };
 		B725166B28C04DEA0094F29B /* NYCSVRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSVRoot.swift; sourceTree = "<group>"; };
 		B725166E28C052B20094F29B /* NYCSVAppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSVAppState.swift; sourceTree = "<group>"; };
+		B725168728C16CCF0094F29B /* NYCSVListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSVListView.swift; sourceTree = "<group>"; };
 		B7B46B0228C019F80004CA2D /* NYCSVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSVApp.swift; sourceTree = "<group>"; };
 		B7B46B0428C019F90004CA2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7B46B0928C019F90004CA2D /* NYCSV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYCSV.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,7 +158,7 @@
 			children = (
 				B725165728C02C420094F29B /* Models */,
 				B725165428C02ACC0094F29B /* SchoolMetaPair.swift */,
-				B725166628C043D90094F29B /* MultiFetch.swift */,
+				B725166628C043D90094F29B /* SchoolMetaFetcher.swift */,
 				B725164E28C027C90094F29B /* SharedModeling.swift */,
 			);
 			path = API;
@@ -195,6 +198,7 @@
 				B725167128C054720094F29B /* AppState */,
 				B7B46B0228C019F80004CA2D /* NYCSVApp.swift */,
 				B725166B28C04DEA0094F29B /* NYCSVRoot.swift */,
+				B725168728C16CCF0094F29B /* NYCSVListView.swift */,
 			);
 			path = AppFrontend;
 			sourceTree = "<group>";
@@ -482,13 +486,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B725168828C16CCF0094F29B /* NYCSVListView.swift in Sources */,
 				B725166F28C052B20094F29B /* NYCSVAppState.swift in Sources */,
 				B725166C28C04DEA0094F29B /* NYCSVRoot.swift in Sources */,
 				B725165228C029FB0094F29B /* SATScoresModel.swift in Sources */,
 				B725166428C03B110094F29B /* RequestVending.swift in Sources */,
 				B725164C28C026B90094F29B /* SchoolModel.swift in Sources */,
 				B725165D28C0353F0094F29B /* Networking.swift in Sources */,
-				B725166728C043D90094F29B /* MultiFetch.swift in Sources */,
+				B725166728C043D90094F29B /* SchoolMetaFetcher.swift in Sources */,
 				B725165528C02ACC0094F29B /* SchoolMetaPair.swift in Sources */,
 				B7B46B4028C01A5C0004CA2D /* SampleData.swift in Sources */,
 				B7B46B2A28C019F90004CA2D /* NYCSVApp.swift in Sources */,
@@ -500,13 +505,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B725168928C16CCF0094F29B /* NYCSVListView.swift in Sources */,
 				B725167028C052B20094F29B /* NYCSVAppState.swift in Sources */,
 				B725166D28C04DEA0094F29B /* NYCSVRoot.swift in Sources */,
 				B725165328C029FB0094F29B /* SATScoresModel.swift in Sources */,
 				B725166528C03B110094F29B /* RequestVending.swift in Sources */,
 				B725164D28C026B90094F29B /* SchoolModel.swift in Sources */,
 				B725165E28C0353F0094F29B /* Networking.swift in Sources */,
-				B725166828C043D90094F29B /* MultiFetch.swift in Sources */,
+				B725166828C043D90094F29B /* SchoolMetaFetcher.swift in Sources */,
 				B725165628C02ACC0094F29B /* SchoolMetaPair.swift in Sources */,
 				B7B46B4128C01A5C0004CA2D /* SampleData.swift in Sources */,
 				B7B46B2B28C019F90004CA2D /* NYCSVApp.swift in Sources */,

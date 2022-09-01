@@ -9,7 +9,6 @@ import SwiftUI
 
 struct NYCSVRoot: View {
     @EnvironmentObject var appState: NYCSVAppState
-    @Environment(\.colorScheme) private var colorScheme
     
     var body: some View {
         buildViewForState()
@@ -29,33 +28,22 @@ struct NYCSVRoot: View {
     }
     
     var launchView: some View {
-        Text("📚 We're getting ready, just a moment")
+        Text("📚 We're getting ready, just a moment.")
             .padding(64)
     }
     
     var loadingView: some View {
-        ProgressView("🎓 Grabbing NYC Schools and SAT Scores")
-            .padding(64)
+        ProgressView(label: {
+            Text("🎓 Grabbing NYC Schools and SAT Scores.")
+                .multilineTextAlignment(.center)
+        }).padding(64)
     }
     
     func loadedView(_ pairList: [SchoolMetaPair]) -> some View {
-        List {
-            ForEach(pairList) { metaPair in
-                VStack(alignment: .leading) {
-                    HStack {
-                        Text(metaPair.school.school_name)
-                    }
-                    Text(metaPair.school.city).fontWeight(.light)
-                    Text(metaPair.school.website).fontWeight(.light)
-                    Text(metaPair.school.overview_paragraph).fontWeight(.light).padding(4)
-                }
-                .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 4.0)
-                        .strokeBorder(Color.gray)
-                )
-            }
-        }.listStyle(.plain)
+        // If appState changes often we'd want to reuse a view state instance.
+        // It's quite easy to get tripped up with rebuilds in SUI, especially
+        // with top level observables / environment objects.
+        NYCSVListView(listState: ListViewState(pairList: pairList))
     }
     
     func errorView(_ failure: SchoolMetaFetcher.Failure) -> some View {
