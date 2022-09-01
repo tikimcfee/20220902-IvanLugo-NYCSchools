@@ -7,50 +7,19 @@
 
 import SwiftUI
 
-extension NYCSVAppState {
-    enum LoadState {
-        case launch
-        case loading
-        case loaded(SchoolMetaMap)
-        case error(SchoolMetaFetcher.Failure)
-    }
-}
-
-// We're pretending this is the top of an app-state hierarchy object.
-// Ergo, we stuff a bunch of depedencies and global state into it.
-// We'll whittle it down as we create subviews (e.g., the detail view)
-class NYCSVAppState: ObservableObject {
-    @Published var loadState: LoadState = .launch
-    private let networking = Networking()
-    
-    func viewDidAppear() {
-        loadState = .loading
-        SchoolMetaFetcher(networking) { [weak self] result in
-            switch result {
-            case let .success(map):
-                print("Received map with keys: \(map.keys.count)")
-                self?.loadState = .loaded(map)
-                
-            case let .failure(error):
-                self?.loadState = .error(error)
-            }
-        }.start()
-    }
-}
-
 struct NYCSVRoot: View {
     @EnvironmentObject var appState: NYCSVAppState
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        buildViewForState()
     }
     
     @ViewBuilder
     func buildViewForState() -> some View {
-        switch appState.loadState {
+        switch appState.rootLoadState {
         case .launch: launchView
         case .loading: loadingView
-        case let .loaded(map): loadedView(map)
+        case let .loaded(sortedList): loadedView(sortedList)
         case let .error(failure): errorView(failure)
         }
     }
@@ -65,8 +34,21 @@ struct NYCSVRoot: View {
             .padding(64)
     }
     
-    func loadedView(_ map: SchoolMetaMap) -> some View {
-        EmptyView()
+    func loadedView(_ pairList: [SchoolMetaPair]) -> some View {
+        List {
+            ForEach(pairList) { metaPair in
+                VStack {
+                    HStack {
+                        Text("Name: ")
+                        Spacer()
+                        Text(metaPair.school.school_name)
+                    }
+                    Text(metaPair.school.city).fontWeight(.light)
+                    Text(metaPair.school.website).fontWeight(.light)
+                    Text(metaPair.school.overview_paragraph).fontWeight(.light).padding(4)
+                }
+            }
+        }.listStyle(.plain)
     }
     
     func errorView(_ failure: SchoolMetaFetcher.Failure) -> some View {
@@ -77,5 +59,6 @@ struct NYCSVRoot: View {
 struct NYCSVRoot_Previews: PreviewProvider {
     static var previews: some View {
         NYCSVRoot()
+            .environmentObject(NYCSVAppState())
     }
 }

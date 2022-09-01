@@ -10,7 +10,8 @@ import Foundation
 // Simple container struct for mapping between scores and school.
 // We're allowing scores to be nil here; we will only present school
 // details with known SAT scores. We can display missing items too.
-struct SchoolMetaPair {
+struct SchoolMetaPair: Hashable, Identifiable {
+    var id: String { school.dbn }
     var school: SchoolModel
     var scores: SATScoreModel?
 }

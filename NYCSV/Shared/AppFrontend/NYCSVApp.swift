@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct NYCSVApp: App {
+    @StateObject var appState = NYCSVAppState()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NYCSVRoot()
+                .environmentObject(appState)
+                .onAppear { appState.startRootLoad() }
         }
     }
 }

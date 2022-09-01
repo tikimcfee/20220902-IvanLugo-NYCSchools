@@ -30,13 +30,13 @@
 		B725166828C043D90094F29B /* MultiFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725166628C043D90094F29B /* MultiFetch.swift */; };
 		B725166C28C04DEA0094F29B /* NYCSVRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725166B28C04DEA0094F29B /* NYCSVRoot.swift */; };
 		B725166D28C04DEA0094F29B /* NYCSVRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725166B28C04DEA0094F29B /* NYCSVRoot.swift */; };
+		B725166F28C052B20094F29B /* NYCSVAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725166E28C052B20094F29B /* NYCSVAppState.swift */; };
+		B725167028C052B20094F29B /* NYCSVAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725166E28C052B20094F29B /* NYCSVAppState.swift */; };
 		B7B46B1B28C019F90004CA2D /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B1A28C019F90004CA2D /* Tests_iOS.swift */; };
 		B7B46B1D28C019F90004CA2D /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B1C28C019F90004CA2D /* Tests_iOSLaunchTests.swift */; };
 		B7B46B2928C019F90004CA2D /* Tests_macOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B2828C019F90004CA2D /* Tests_macOSLaunchTests.swift */; };
 		B7B46B2A28C019F90004CA2D /* NYCSVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B0228C019F80004CA2D /* NYCSVApp.swift */; };
 		B7B46B2B28C019F90004CA2D /* NYCSVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B0228C019F80004CA2D /* NYCSVApp.swift */; };
-		B7B46B2C28C019F90004CA2D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B0328C019F80004CA2D /* ContentView.swift */; };
-		B7B46B2D28C019F90004CA2D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B0328C019F80004CA2D /* ContentView.swift */; };
 		B7B46B2E28C019F90004CA2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7B46B0428C019F90004CA2D /* Assets.xcassets */; };
 		B7B46B2F28C019F90004CA2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7B46B0428C019F90004CA2D /* Assets.xcassets */; };
 		B7B46B4028C01A5C0004CA2D /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B3F28C01A5C0004CA2D /* SampleData.swift */; };
@@ -85,8 +85,8 @@
 		B725166128C03B0C0094F29B /* RequestVending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestVending.swift; sourceTree = "<group>"; };
 		B725166628C043D90094F29B /* MultiFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiFetch.swift; sourceTree = "<group>"; };
 		B725166B28C04DEA0094F29B /* NYCSVRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSVRoot.swift; sourceTree = "<group>"; };
+		B725166E28C052B20094F29B /* NYCSVAppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSVAppState.swift; sourceTree = "<group>"; };
 		B7B46B0228C019F80004CA2D /* NYCSVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSVApp.swift; sourceTree = "<group>"; };
-		B7B46B0328C019F80004CA2D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B7B46B0428C019F90004CA2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7B46B0928C019F90004CA2D /* NYCSV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYCSV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7B46B0F28C019F90004CA2D /* NYCSV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYCSV.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,11 +192,19 @@
 		B725166A28C04DB90094F29B /* AppFrontend */ = {
 			isa = PBXGroup;
 			children = (
+				B725167128C054720094F29B /* AppState */,
 				B7B46B0228C019F80004CA2D /* NYCSVApp.swift */,
-				B7B46B0328C019F80004CA2D /* ContentView.swift */,
 				B725166B28C04DEA0094F29B /* NYCSVRoot.swift */,
 			);
 			path = AppFrontend;
+			sourceTree = "<group>";
+		};
+		B725167128C054720094F29B /* AppState */ = {
+			isa = PBXGroup;
+			children = (
+				B725166E28C052B20094F29B /* NYCSVAppState.swift */,
+			);
+			path = AppState;
 			sourceTree = "<group>";
 		};
 		B7B46AFC28C019F80004CA2D = {
@@ -474,8 +482,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B725166F28C052B20094F29B /* NYCSVAppState.swift in Sources */,
 				B725166C28C04DEA0094F29B /* NYCSVRoot.swift in Sources */,
-				B7B46B2C28C019F90004CA2D /* ContentView.swift in Sources */,
 				B725165228C029FB0094F29B /* SATScoresModel.swift in Sources */,
 				B725166428C03B110094F29B /* RequestVending.swift in Sources */,
 				B725164C28C026B90094F29B /* SchoolModel.swift in Sources */,
@@ -492,8 +500,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B725167028C052B20094F29B /* NYCSVAppState.swift in Sources */,
 				B725166D28C04DEA0094F29B /* NYCSVRoot.swift in Sources */,
-				B7B46B2D28C019F90004CA2D /* ContentView.swift in Sources */,
 				B725165328C029FB0094F29B /* SATScoresModel.swift in Sources */,
 				B725166528C03B110094F29B /* RequestVending.swift in Sources */,
 				B725164D28C026B90094F29B /* SchoolModel.swift in Sources */,
