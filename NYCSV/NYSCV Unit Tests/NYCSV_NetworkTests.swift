@@ -26,7 +26,7 @@ class NYCSV_NetworkTests: XCTestCase {
     func testFetchSchoolList() throws {
         let listExpectation = expectation(description: "Must fetch and receive callback from request")
         
-        let request = NYCSchool.fetchRequest
+        let request = SchoolModel.fetchRequest
         networking.doFetch(request) { schoolResponse in
             switch schoolResponse.result {
             case let .success(list):
@@ -40,5 +40,9 @@ class NYCSV_NetworkTests: XCTestCase {
         }
         
         wait(for: [listExpectation], timeout: 3.0)
+    }
+    
+    func testSimultaneousFetch() throws {
+        
     }
 }

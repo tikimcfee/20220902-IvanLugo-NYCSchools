@@ -10,32 +10,36 @@ import Foundation
 // Simple container struct for mapping between scores and school.
 // We're allowing scores to be nil here; we will only present school
 // details with known SAT scores. We can display missing items too.
-struct SchoolMetaMap {
-    var school: NYCSchool
+struct SchoolMetaPair {
+    var school: SchoolModel
     var scores: SATScoreModel?
 }
 
-extension SchoolMetaMap {
+typealias SchoolMetaMap = [DBNID: SchoolMetaPair]
+
+extension SchoolMetaPair {
     static func makeMapping(
-        schools: [NYCSchool],
+        schools: [SchoolModel],
         scores: [SATScoreModel]
-    ) -> [DBNID: SchoolMetaMap] {
+    ) -> SchoolMetaMap {
         // Do a simple double loop through both lists to align schools with their scores.
-        var dbnMap = [DBNID: SchoolMetaMap]()
+        // This could probably be in a 'network DTO translation layer'. Against, 2 requests.
+        // Also note: this is lossy on Scores; a missing school will drop it
+        var dbnMap = [DBNID: SchoolMetaPair]()
         dbnMap = schools.reduce(into: dbnMap) { result, school in
-            result[school.dbn] = SchoolMetaMap(school: school)
+            result[school.dbn] = SchoolMetaPair(school: school)
         }
         scores.forEach { dbnMap[$0.dbn]?.scores = $0 }
         return dbnMap
     }
 }
 
-extension SchoolMetaMap: Comparable {
-    static func < (lhs: SchoolMetaMap, rhs: SchoolMetaMap) -> Bool {
+extension SchoolMetaPair: Comparable {
+    static func < (lhs: SchoolMetaPair, rhs: SchoolMetaPair) -> Bool {
         lhs.school.school_name < rhs.school.school_name
     }
     
-    static func == (lhs: SchoolMetaMap, rhs: SchoolMetaMap) -> Bool {
+    static func == (lhs: SchoolMetaPair, rhs: SchoolMetaPair) -> Bool {
         lhs.school.dbn == rhs.school.dbn
     }
 }

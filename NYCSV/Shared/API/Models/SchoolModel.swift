@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NYCSchool: ListDecodable {    
+struct SchoolModel: ListDecodable {    
     // Lookup for SAT Score ID
     let dbn: DBNID
 

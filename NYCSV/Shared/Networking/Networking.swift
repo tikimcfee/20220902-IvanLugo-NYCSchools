@@ -19,14 +19,8 @@ class Networking {
     private let urlSession = URLSession.shared
     private let backgroundQueue = DispatchQueue.init(label: "NetworkQueue", qos: .userInitiated)
     
-    private func fetch(_ url: URL, _ callback: @escaping URLSessionCompletion) {
-        backgroundQueue.async { [weak self] in
-            print(">> Starting fetch: \(url)")
-            self?.urlSession.dataTask(with: url, completionHandler: callback).resume()
-        }
-    }
-    
     func doFetch<T>(_ request: ListFetch<T>.Request, _ receiver: @escaping ListFetch<T>.Receiver) {
+        print(">>> Equeuing fetch: \(request.endpoint)")
         fetch(request.endpoint) { data, _, error in
             let response: ListFetch<T>.Response
             defer { receiver(response) }
@@ -42,11 +36,20 @@ class Networking {
             }
         }
     }
+    
+    private func fetch(_ url: URL, _ callback: @escaping URLSessionCompletion) {
+        backgroundQueue.async { [weak self] in
+            print(">> Starting fetch: \(url)")
+            self?.urlSession.dataTask(with: url, completionHandler: callback).resume()
+        }
+    }
 }
 
 // A little cheat code for parsing. We can play with generics more
 // if we have other decodable types, and wrap them in similar models.
 struct ListFetch<Model: ListDecodable> {
+    private init() { }
+    
     typealias Receiver = (Response) -> Void
     
     struct Request {

@@ -20,7 +20,7 @@ extension ListFetchable {
     static var fetchRequest: ListFetch<Self>.Request { .init(endpoint: Self.fetchURL) }
 }
 
-extension NYCSchool: ListFetchable {
+extension SchoolModel: ListFetchable {
     static var fetchPath: String { "https://data.cityofnewyork.us/resource/s3k6-pzi2.json" }
 }
 

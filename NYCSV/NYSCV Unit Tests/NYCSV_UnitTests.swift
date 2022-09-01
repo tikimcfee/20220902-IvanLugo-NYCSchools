@@ -52,14 +52,14 @@ class NYCSV_UnitTests: XCTestCase {
         // accurate, and if missing SAT scores, we store that fact.
         
         let listData = try bundle.loadData(for: .schoolList)
-        let schoolList = try NYCSchool.decodeAsList(from: listData)
+        let schoolList = try SchoolModel.decodeAsList(from: listData)
         XCTAssertFalse(schoolList.isEmpty, "Must decode at least one school")
         
         let scoreData = try bundle.loadData(for: .scoreList)
         let scoreList = try SATScoreModel.decodeAsList(from: scoreData)
         XCTAssertFalse(scoreList.isEmpty, "Must decode at least one SAT score")
         
-        let dbnMap = SchoolMetaMap.makeMapping(schools: schoolList, scores: scoreList)
+        let dbnMap = SchoolMetaPair.makeMapping(schools: schoolList, scores: scoreList)
         
         // Show stuff
         XCTAssertFalse(dbnMap.isEmpty, "Must have found at least one match")

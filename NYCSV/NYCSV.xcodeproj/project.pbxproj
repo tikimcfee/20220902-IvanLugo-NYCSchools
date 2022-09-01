@@ -17,8 +17,8 @@
 		B725165028C027C90094F29B /* SharedModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725164E28C027C90094F29B /* SharedModeling.swift */; };
 		B725165228C029FB0094F29B /* SATScoresModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725165128C029FB0094F29B /* SATScoresModel.swift */; };
 		B725165328C029FB0094F29B /* SATScoresModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725165128C029FB0094F29B /* SATScoresModel.swift */; };
-		B725165528C02ACC0094F29B /* SchoolMetaMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725165428C02ACC0094F29B /* SchoolMetaMap.swift */; };
-		B725165628C02ACC0094F29B /* SchoolMetaMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725165428C02ACC0094F29B /* SchoolMetaMap.swift */; };
+		B725165528C02ACC0094F29B /* SchoolMetaPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725165428C02ACC0094F29B /* SchoolMetaPair.swift */; };
+		B725165628C02ACC0094F29B /* SchoolMetaPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725165428C02ACC0094F29B /* SchoolMetaPair.swift */; };
 		B725165928C034320094F29B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B725165828C034320094F29B /* README.md */; };
 		B725165A28C034320094F29B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B725165828C034320094F29B /* README.md */; };
 		B725165D28C0353F0094F29B /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725165C28C0353F0094F29B /* Networking.swift */; };
@@ -26,6 +26,8 @@
 		B725166028C03A090094F29B /* NYCSV_NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725165F28C03A090094F29B /* NYCSV_NetworkTests.swift */; };
 		B725166428C03B110094F29B /* RequestVending.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725166128C03B0C0094F29B /* RequestVending.swift */; };
 		B725166528C03B110094F29B /* RequestVending.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725166128C03B0C0094F29B /* RequestVending.swift */; };
+		B725166728C043D90094F29B /* MultiFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725166628C043D90094F29B /* MultiFetch.swift */; };
+		B725166828C043D90094F29B /* MultiFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725166628C043D90094F29B /* MultiFetch.swift */; };
 		B7B46B1B28C019F90004CA2D /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B1A28C019F90004CA2D /* Tests_iOS.swift */; };
 		B7B46B1D28C019F90004CA2D /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B1C28C019F90004CA2D /* Tests_iOSLaunchTests.swift */; };
 		B7B46B2928C019F90004CA2D /* Tests_macOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B2828C019F90004CA2D /* Tests_macOSLaunchTests.swift */; };
@@ -74,11 +76,12 @@
 		B725164B28C026B90094F29B /* SchoolModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolModel.swift; sourceTree = "<group>"; };
 		B725164E28C027C90094F29B /* SharedModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedModeling.swift; sourceTree = "<group>"; };
 		B725165128C029FB0094F29B /* SATScoresModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SATScoresModel.swift; sourceTree = "<group>"; };
-		B725165428C02ACC0094F29B /* SchoolMetaMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolMetaMap.swift; sourceTree = "<group>"; };
+		B725165428C02ACC0094F29B /* SchoolMetaPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolMetaPair.swift; sourceTree = "<group>"; };
 		B725165828C034320094F29B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B725165C28C0353F0094F29B /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		B725165F28C03A090094F29B /* NYCSV_NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSV_NetworkTests.swift; sourceTree = "<group>"; };
 		B725166128C03B0C0094F29B /* RequestVending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestVending.swift; sourceTree = "<group>"; };
+		B725166628C043D90094F29B /* MultiFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiFetch.swift; sourceTree = "<group>"; };
 		B7B46B0228C019F80004CA2D /* NYCSVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSVApp.swift; sourceTree = "<group>"; };
 		B7B46B0328C019F80004CA2D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B7B46B0428C019F90004CA2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -148,7 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				B725165728C02C420094F29B /* Models */,
-				B725165428C02ACC0094F29B /* SchoolMetaMap.swift */,
+				B725165428C02ACC0094F29B /* SchoolMetaPair.swift */,
+				B725166628C043D90094F29B /* MultiFetch.swift */,
 				B725164E28C027C90094F29B /* SharedModeling.swift */,
 			);
 			path = API;
@@ -455,7 +459,8 @@
 				B725166428C03B110094F29B /* RequestVending.swift in Sources */,
 				B725164C28C026B90094F29B /* SchoolModel.swift in Sources */,
 				B725165D28C0353F0094F29B /* Networking.swift in Sources */,
-				B725165528C02ACC0094F29B /* SchoolMetaMap.swift in Sources */,
+				B725166728C043D90094F29B /* MultiFetch.swift in Sources */,
+				B725165528C02ACC0094F29B /* SchoolMetaPair.swift in Sources */,
 				B7B46B4028C01A5C0004CA2D /* SampleData.swift in Sources */,
 				B7B46B2A28C019F90004CA2D /* NYCSVApp.swift in Sources */,
 				B725164F28C027C90094F29B /* SharedModeling.swift in Sources */,
@@ -471,7 +476,8 @@
 				B725166528C03B110094F29B /* RequestVending.swift in Sources */,
 				B725164D28C026B90094F29B /* SchoolModel.swift in Sources */,
 				B725165E28C0353F0094F29B /* Networking.swift in Sources */,
-				B725165628C02ACC0094F29B /* SchoolMetaMap.swift in Sources */,
+				B725166828C043D90094F29B /* MultiFetch.swift in Sources */,
+				B725165628C02ACC0094F29B /* SchoolMetaPair.swift in Sources */,
 				B7B46B4128C01A5C0004CA2D /* SampleData.swift in Sources */,
 				B7B46B2B28C019F90004CA2D /* NYCSVApp.swift in Sources */,
 				B725165028C027C90094F29B /* SharedModeling.swift in Sources */,
