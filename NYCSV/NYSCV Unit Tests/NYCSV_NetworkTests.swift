@@ -43,6 +43,23 @@ class NYCSV_NetworkTests: XCTestCase {
     }
     
     func testSimultaneousFetch() throws {
-        
+        let fetchCompletes = expectation(description: "meta fetcher much complete its tasks")
+        let metaFetch = SchoolMetaFetcher(networking) { result in
+            switch result {
+            case let .success(map):
+                XCTAssertFalse(map.keys.isEmpty, "API request is expected to have at least one value")
+                print("Received map with keys: \(map.keys.count)")
+                
+            case let .failure(error):
+                switch error {
+                case let .multiFetch(allErrors):
+                    let message = allErrors.map { $0.localizedDescription }.joined(separator: "\n")
+                    XCTFail(message)
+                }
+            }
+            fetchCompletes.fulfill()
+        }
+        metaFetch.start()
+        wait(for: [fetchCompletes], timeout: 5.0)
     }
 }
