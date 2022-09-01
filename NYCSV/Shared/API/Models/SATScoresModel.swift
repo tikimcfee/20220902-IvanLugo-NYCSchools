@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SATScoreModel: Codable, ListDecodable {
+struct SATScoreModel: ListDecodable {
     // Matching identifier to school
     let dbn: String
     

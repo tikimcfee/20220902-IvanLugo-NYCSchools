@@ -19,6 +19,8 @@
 		B725165328C029FB0094F29B /* SATScoresModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725165128C029FB0094F29B /* SATScoresModel.swift */; };
 		B725165528C02ACC0094F29B /* SchoolMetaMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725165428C02ACC0094F29B /* SchoolMetaMap.swift */; };
 		B725165628C02ACC0094F29B /* SchoolMetaMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725165428C02ACC0094F29B /* SchoolMetaMap.swift */; };
+		B725165928C034320094F29B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B725165828C034320094F29B /* README.md */; };
+		B725165A28C034320094F29B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B725165828C034320094F29B /* README.md */; };
 		B7B46B1B28C019F90004CA2D /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B1A28C019F90004CA2D /* Tests_iOS.swift */; };
 		B7B46B1D28C019F90004CA2D /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B1C28C019F90004CA2D /* Tests_iOSLaunchTests.swift */; };
 		B7B46B2928C019F90004CA2D /* Tests_macOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B46B2828C019F90004CA2D /* Tests_macOSLaunchTests.swift */; };
@@ -68,6 +70,7 @@
 		B725164E28C027C90094F29B /* SharedModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedModeling.swift; sourceTree = "<group>"; };
 		B725165128C029FB0094F29B /* SATScoresModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SATScoresModel.swift; sourceTree = "<group>"; };
 		B725165428C02ACC0094F29B /* SchoolMetaMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolMetaMap.swift; sourceTree = "<group>"; };
+		B725165828C034320094F29B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B7B46B0228C019F80004CA2D /* NYCSVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSVApp.swift; sourceTree = "<group>"; };
 		B7B46B0328C019F80004CA2D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B7B46B0428C019F90004CA2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -154,6 +157,7 @@
 		B7B46AFC28C019F80004CA2D = {
 			isa = PBXGroup;
 			children = (
+				B725165828C034320094F29B /* README.md */,
 				B7B46B0128C019F80004CA2D /* Shared */,
 				B7B46B1028C019F90004CA2D /* macOS */,
 				B7B46B1928C019F90004CA2D /* Tests iOS */,
@@ -380,6 +384,7 @@
 			files = (
 				B725164828C024870094F29B /* f9bf-2cp4.json in Resources */,
 				B7B46B2E28C019F90004CA2D /* Assets.xcassets in Resources */,
+				B725165928C034320094F29B /* README.md in Resources */,
 				B7B46B4328C01B4F0004CA2D /* s3k6-pzi2.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,6 +395,7 @@
 			files = (
 				B725164928C024870094F29B /* f9bf-2cp4.json in Resources */,
 				B7B46B2F28C019F90004CA2D /* Assets.xcassets in Resources */,
+				B725165A28C034320094F29B /* README.md in Resources */,
 				B7B46B4428C01B4F0004CA2D /* s3k6-pzi2.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
