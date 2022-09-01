@@ -12,7 +12,8 @@ struct SATScoreModel: Hashable, ListDecodable {
     let dbn: DBNID
     
     // These are displayable numbers, and I'm deciding to
-    // parse them for math later if I need to.
+    // parse them for math later if I need to instead of
+    // using them directly; they sometime have an "s" value.
     let num_of_sat_test_takers: String
     let sat_critical_reading_avg_score: String
     let sat_math_avg_score: String
