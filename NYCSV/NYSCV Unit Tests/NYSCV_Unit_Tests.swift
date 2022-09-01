@@ -59,13 +59,7 @@ class NYSCV_Unit_Tests: XCTestCase {
         let scoreList = try SATScoreModel.decodeAsList(from: scoreData)
         XCTAssertFalse(scoreList.isEmpty, "Must decode at least one SAT score")
         
-        // Do a simple double loop through both lists to align schools with
-        // their scores.
-        var dbnMap = [String: SchoolMetaMap]()
-        dbnMap = schoolList.reduce(into: dbnMap) { result, school in
-            result[school.dbn] = SchoolMetaMap(school: school)
-        }
-        scoreList.forEach { dbnMap[$0.dbn]?.scores = $0 }
+        let dbnMap = SchoolMetaMap.makeMapping(schools: schoolList, scores: scoreList)
         
         // Show stuff
         XCTAssertFalse(dbnMap.isEmpty, "Must have found at least one match")

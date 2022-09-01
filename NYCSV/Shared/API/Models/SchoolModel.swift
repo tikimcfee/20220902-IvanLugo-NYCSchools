@@ -9,7 +9,7 @@ import Foundation
 
 struct NYCSchool: Codable, ListDecodable {    
     // Lookup for SAT Score ID
-    let dbn: String
+    let dbn: DBNID
 
     // Semi-safe API items
     let city: String

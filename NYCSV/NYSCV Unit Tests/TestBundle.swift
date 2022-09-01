@@ -13,7 +13,7 @@ class TestBundle {
     func loadData(for data: SampleData.BundleFile) throws -> Data {
         let maybeURL: URL? = SampleData.url(for: data)
         let fileURL = try XCTUnwrap(maybeURL, "Must have sample data in main bundle")
-        print("Reading from: \(fileURL.lastPathComponent)")
+        print("Reading \(data) from: \(fileURL.lastPathComponent)")
         return try Data(contentsOf: fileURL)
     }
 }
