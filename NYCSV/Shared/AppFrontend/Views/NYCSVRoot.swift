@@ -47,7 +47,18 @@ struct NYCSVRoot: View {
     }
     
     func errorView(_ failure: SchoolMetaFetcher.Failure) -> some View {
-        EmptyView()
+        VStack {
+            Text("😢 Something seems to have gone wrong. Here's what we know:")
+                .padding(64)
+            VStack(alignment: .leading) {
+                switch failure {
+                case let .multiFetch(errors):
+                    ForEach(Array(errors.enumerated()), id:\.offset) { index, error in
+                        Text(error.localizedDescription)
+                    }
+                }
+            }
+        }
     }
 }
 
