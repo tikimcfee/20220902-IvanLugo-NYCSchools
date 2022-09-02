@@ -9,6 +9,8 @@ import SwiftUI
 
 class ListViewState: ObservableObject {
     var pairList: [SchoolMetaPair]
+    
+    @Published var selectedSchool: SchoolMetaPair?
     @Published private var expandedSchools = [SchoolMetaPair: Bool]()
     
     init(pairList: [SchoolMetaPair]) {
@@ -46,19 +48,32 @@ struct NYCSVListView: View {
     @ObservedObject var listState: ListViewState
     
     var body: some View {
-        rootContainerView
-            .padding()
+        NavigationView {
+            rootContainerView
+                .padding([.leading, .trailing])
+                .padding([.bottom], 64)
+                .navigationTitle("NYC Schools")
+                .ignoresSafeArea(.container, edges: .bottom)
+        }
+        
     }
     
     var rootContainerView: some View {
         ScrollView {
-            LazyVStack(alignment: .leading) {
+            LazyVStack(alignment: .leading, spacing: 8) {
                 ForEach(listState.pairList) { metaPair in
                     schoolView(metaPair).onTapGesture {
                         withAnimation {
                             listState.metaPairTapped(metaPair)
                         }
                     }
+                    
+                    NavigationLink(
+                        tag: metaPair,
+                        selection: $listState.selectedSchool,
+                        destination: {
+                            Text("Hello, \(metaPair.school.school_name)!")
+                        }, label: { EmptyView() })
                 }
             }
         }
@@ -86,8 +101,8 @@ struct NYCSVListView: View {
             }
             Spacer()
             Button(action: {
-                // set detail param
                 print("Selected: \(metaPair.school.school_name)")
+                listState.selectedSchool = metaPair
             }) {
                 Image(systemName: "info.circle.fill")
                     .padding()
