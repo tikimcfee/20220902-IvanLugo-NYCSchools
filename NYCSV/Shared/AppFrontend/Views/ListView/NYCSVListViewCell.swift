@@ -18,10 +18,14 @@ class ListViewCellState: ObservableObject {
     func shortSummary(_ pair: SchoolMetaPair) -> String {
         // Find first setence or first N characters.
         let text = pair.school.overview_paragraph
-        let endIndex = text.firstIndex(of: ".")
-        ?? text.index(text.startIndex, offsetBy: min(32, text.count))
-        let range = (text.startIndex..<endIndex)
-        return String(text[range]) + "  [...]"
+        let cutoff = 256
+        if text.count > cutoff {
+            let endIndex = text.index(text.startIndex, offsetBy: min(cutoff, text.count))
+            let range = (text.startIndex..<endIndex)
+            return String(text[range]) + "  [...]"
+        } else {
+            return text
+        }
     }
     
     func linkURL(for school: SchoolModel) -> URL? {
@@ -36,9 +40,9 @@ class ListViewCellState: ObservableObject {
 
 struct NYCSVListViewCell: View {
     let schoolMetaPair: SchoolMetaPair
+    @Binding var selectedSchool: SchoolMetaPair?
     
     @StateObject private var cellState = ListViewCellState()
-    @Binding var selectedSchool: SchoolMetaPair?
     
     var body: some View {
         schoolView(schoolMetaPair)
@@ -69,35 +73,48 @@ struct NYCSVListViewCell: View {
                 Text(metaPair.school.city).fontWeight(.light).italic().font(.subheadline)
                 websiteLinkView(metaPair.school).lineLimit(1).font(.subheadline)
             }
+            // No need to show info button on macOS; it's handed by the navigation view.
+            // A flag passed in from root? Sure, we could.
+            #if os(iOS)
             Spacer()
-            Button(action: {
-                print("Selected: \(metaPair.school.school_name)")
-                selectedSchool = metaPair
-            }) {
-                VStack {
-                    Image(systemName: "info.circle.fill")
-                    Text("Info").font(.caption2)
-                }
-                .padding([.leading, .trailing])
-                .padding([.top, .bottom], 4)
-                .background(
-                    RoundedRectangle(cornerRadius: 4.0)
-                        .strokeBorder(Color.accentColor)
-                )
-            }
-            .buttonStyle(.plain)
-            .foregroundColor(.accentColor)
+            infoButtonView(metaPair)
+            #endif
         }
+    }
+    
+    @ViewBuilder
+    func infoButtonView(_ metaPair: SchoolMetaPair) -> some View {
+        Button(action: {
+            print("Selected: \(metaPair.school.school_name)")
+            selectedSchool = metaPair
+        }) {
+            VStack {
+                Image(systemName: "info.circle.fill")
+                Text("Info").font(.caption2)
+            }
+            .padding([.leading, .trailing])
+            .padding([.top, .bottom], 4)
+            .background(
+                RoundedRectangle(cornerRadius: 4.0)
+                    .strokeBorder(Color.accentColor)
+            )
+        }
+        .buttonStyle(.plain)
+        .foregroundColor(.accentColor)
     }
     
     @ViewBuilder
     func bodyView(_ metaPair: SchoolMetaPair) -> some View {
         if cellState.isExpanded {
             Text(metaPair.school.overview_paragraph)
+                .lineLimit(nil)
+                .frame(maxWidth: .infinity)
         } else {
             Text(cellState.shortSummary(metaPair))
                 .fontWeight(.light)
                 .italic()
+                .lineLimit(nil)
+                .frame(maxWidth: .infinity)
         }
     }
     

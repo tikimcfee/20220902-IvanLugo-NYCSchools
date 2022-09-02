@@ -35,7 +35,7 @@ struct NYCSVListView: View {
     // nav views and lists. E.g., navigation works just fine in iOS when using
     // 'invisible' navitation links, but not in macOS. It's just a quirk, easy
     // enough to work around with a conditional compilation. A new view for each
-    // OS? Yeah, probably, but hey, it's a sample app right? 
+    // OS? Yeah, probably, but hey, it's a sample app right?
     #if os(macOS)
     var rootContainerView: some View {
         List {
