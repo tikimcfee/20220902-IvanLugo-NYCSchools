@@ -9,6 +9,7 @@ import SwiftUI
 
 class ListViewState: ObservableObject {
     var pairList: [SchoolMetaPair]
+    @Published private var expandedSchools = [SchoolMetaPair: Bool]()
     
     init(pairList: [SchoolMetaPair]) {
         self.pairList = pairList
@@ -21,6 +22,23 @@ class ListViewState: ObservableObject {
             ? school.website
             : "http://\(school.website)"
         return URL(string: protocolFixup)
+    }
+    
+    func isExpanded(_ pair: SchoolMetaPair) -> Bool {
+        expandedSchools[pair, default: false]
+    }
+    
+    func metaPairTapped(_ pair: SchoolMetaPair) {
+        expandedSchools[pair, default: false].toggle()
+    }
+    
+    func shortSummary(_ pair: SchoolMetaPair) -> String {
+        // Find first setence or first N characters.
+        let text = pair.school.overview_paragraph
+        let endIndex = text.firstIndex(of: ".")
+            ?? text.index(text.startIndex, offsetBy: min(32, text.count))
+        let range = (text.startIndex..<endIndex)
+        return String(text[range]) + "  ..."
     }
 }
 
@@ -36,14 +54,18 @@ struct NYCSVListView: View {
         ScrollView {
             LazyVStack(alignment: .leading) {
                 ForEach(listState.pairList) { metaPair in
-                    schoolView(metaPair)
+                    schoolView(metaPair).onTapGesture {
+                        withAnimation {
+                            listState.metaPairTapped(metaPair)
+                        }
+                    }
                 }
             }
         }
     }
     
     func schoolView(_ metaPair: SchoolMetaPair) -> some View {
-        VStack(alignment: .leading, spacing: 0) {
+        VStack(alignment: .leading, spacing: 8) {
             headerView(metaPair)
             bodyView(metaPair)
         }
@@ -79,7 +101,13 @@ struct NYCSVListView: View {
     
     @ViewBuilder
     func bodyView(_ metaPair: SchoolMetaPair) -> some View {
-        Text(metaPair.school.overview_paragraph).fontWeight(.light).padding(4)
+        if listState.isExpanded(metaPair) {
+            Text(metaPair.school.overview_paragraph)
+        } else {
+            Text(listState.shortSummary(metaPair))
+                .fontWeight(.light)
+                .italic()
+        }
     }
     
     @ViewBuilder
