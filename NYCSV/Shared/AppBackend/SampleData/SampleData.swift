@@ -18,4 +18,18 @@ struct SampleData {
     static func url(for file: BundleFile) -> URL? {
         Bundle.main.url(forResource: file.rawValue, withExtension: ".json")
     }
+    
+    static func sampleMetaList() -> [SchoolMetaPair] {
+        guard let schools = url(for: .schoolList), let schoolData = try? Data(contentsOf: schools),
+              let scores = url(for: .scoreList), let scoreData = try? Data(contentsOf: scores),
+              let schoolList = try? SchoolModel.decodeAsList(from: schoolData),
+              let scoreList = try? SATScoreModel.decodeAsList(from: scoreData)
+        else { return [] }
+        
+        return Array(
+            SchoolMetaPair
+                .makeMapping(schools: schoolList, scores: scoreList)
+                .values
+        )
+    }
 }

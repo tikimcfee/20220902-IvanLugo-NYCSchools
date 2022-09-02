@@ -40,7 +40,7 @@ class ListViewState: ObservableObject {
         let endIndex = text.firstIndex(of: ".")
             ?? text.index(text.startIndex, offsetBy: min(32, text.count))
         let range = (text.startIndex..<endIndex)
-        return String(text[range]) + "  ..."
+        return String(text[range]) + "  [...]"
     }
 }
 
@@ -71,7 +71,9 @@ struct NYCSVListView: View {
                         tag: metaPair,
                         selection: $listState.selectedSchool,
                         destination: {
-                            Text("Hello, \(metaPair.school.school_name)!")
+                            NYCSVDetailView(
+                                state: DetailViewState(metaPair: metaPair)
+                            )
                         }, label: { EmptyView() })
                 }
             }
@@ -141,17 +143,12 @@ struct NYCSVListView: View {
 }
 
 struct NYCSVListView_Previews: PreviewProvider {
+    static let sample: [SchoolMetaPair] = {
+        SampleData.sampleMetaList()
+    }()
+    
     static let testState: ListViewState = {
-        ListViewState(pairList: [
-            .init(school: .init(
-                dbn: "A",
-                city: "New York City",
-                zip: "01011",
-                overview_paragraph: "It's a hip place to be",
-                website: "www.nycyainahainalollerwatzerkatezer.com",
-                school_name: "NYC High"
-            ))
-        ])
+        ListViewState(pairList: sample)
     }()
     
     static var previews: some View {
