@@ -9,9 +9,22 @@ import SwiftUI
 
 class DetailViewState: ObservableObject {
     let metaPair: SchoolMetaPair
+    var scores: SATScoreModel? { metaPair.scores }
     
     init(metaPair: SchoolMetaPair) {
         self.metaPair = metaPair
+    }
+    
+    var mathScore: String { scores?.sat_math_avg_score ?? "~" }
+    var readingScore: String { scores?.sat_critical_reading_avg_score ?? "~" }
+    var writingScore: String { scores?.sat_writing_avg_score ?? "~" }
+    
+    var mathDisplayable: Bool { scoreIsDisplayable(mathScore) }
+    var readingDisplayable: Bool { scoreIsDisplayable(readingScore) }
+    var writingDisplayable: Bool { scoreIsDisplayable(writingScore) }
+    
+    private func scoreIsDisplayable(_ score: String?) -> Bool {
+        score.map { Int($0) } != nil
     }
 }
 
@@ -21,17 +34,75 @@ struct NYCSVDetailView: View {
     var body: some View {
         VStack {
             headerView
+            wideLine
+            scoreView
+            wideLine
             Spacer()
-        }.padding()
+            
+        }.padding(4)
     }
     
     @ViewBuilder
     var headerView: some View {
         Text(state.metaPair.school.school_name)
             .font(.title)
+    }
+    
+    @ViewBuilder
+    var scoreView: some View {
+        if let _ = state.metaPair.scores {
+            VStack(spacing: 0) {
+                Text("School SAT Averages")
+                    .font(.title2)
+                HStack {
+                    scoreBox("Math", score: state.mathScore, valid: state.mathDisplayable)
+                    scoreBox("Reading", score: state.mathScore, valid: state.readingDisplayable)
+                    scoreBox("Writing", score: state.mathScore, valid: state.writingDisplayable)
+                }
+            }
+        } else {
+            Text("No SAT scores available")
+        }
+        
+    }
+    
+    @ViewBuilder
+    func scoreBox(_ name: String, score: String, valid: Bool) -> some View {
+        VStack(spacing: 2) {
+            Text(name)
+                .font(.title3)
+                .underline()
+            if valid {
+                Text(score)
+            } else {
+                Text(score).italic().fontWeight(.light)
+            }
+        }.padding(8)
+    }
+    
+    var wideLine: some View {
         Rectangle()
             .fill(.gray)
             .frame(width: .infinity, height: 1)
+    }
+}
+
+extension NYCSVDetailView {
+    @ViewBuilder
+    func makeTextBlock(
+        named blockName: String,
+        from paths: [KeyPath<SchoolModel, String?>]
+    ) -> some View {
+        // A nicer way to do this is map the non-nil values first in the view state,
+        // and only show non-empty sections.
+        VStack {
+            Text(blockName).bold()
+            ForEach(Array(paths.enumerated()), id: \.offset) { index, path in
+                if let fieldValue = state.metaPair.school[keyPath: path] {
+                    Text(fieldValue)
+                }
+            }
+        }
     }
     
     var programBlock: some View {
@@ -85,7 +156,7 @@ struct NYCSVDetailView: View {
     var extraBlocks: some View {
         makeTextBlock(named: "Extras", from: [
             \.school_accessibility_description,
-            \.specialized,
+             \.specialized,
              \.advancedplacement_courses,
              \.school_sports,
         ])
@@ -97,23 +168,6 @@ struct NYCSVDetailView: View {
              \.community_board,
              \.school_email,
         ])
-    }
-    
-    @ViewBuilder
-    func makeTextBlock(
-        named blockName: String,
-        from paths: [KeyPath<SchoolModel, String?>]
-    ) -> some View {
-        // A nicer way to do this is map the non-nil values first in the view state,
-        // and only show non-empty sections.
-        VStack {
-            Text(blockName).bold()
-            ForEach(Array(paths.enumerated()), id: \.offset) { index, path in
-                if let fieldValue = state.metaPair.school[keyPath: path] {
-                    Text(fieldValue)
-                }
-            }
-        }
     }
 }
 
