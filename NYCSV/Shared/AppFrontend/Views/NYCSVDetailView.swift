@@ -59,8 +59,7 @@ struct NYCSVDetailView: View {
                 wideLine
             }.padding([.bottom], 64)
         }
-        .padding([.leading, .trailing])
-        .ignoresSafeArea(.container, edges: .bottom)
+        .padding([.leading, .trailing], 20)
     }
     
     @ViewBuilder
@@ -134,6 +133,8 @@ struct NYCSVDetailView: View {
         Rectangle()
             .fill(.gray)
             .frame(maxWidth: .infinity, maxHeight: 1)
+            .padding([.leading, .trailing], 32)
+            .padding([.top, .bottom], 8)
     }
 }
 
