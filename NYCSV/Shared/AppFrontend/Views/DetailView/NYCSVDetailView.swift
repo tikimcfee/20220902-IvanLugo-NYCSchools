@@ -26,8 +26,6 @@ class DetailViewState: ObservableObject {
     let metaPair: SchoolMetaPair
     var scores: SATScoreModel? { metaPair.scores }
     
-    
-    
     init(metaPair: SchoolMetaPair) {
         self.metaPair = metaPair
     }

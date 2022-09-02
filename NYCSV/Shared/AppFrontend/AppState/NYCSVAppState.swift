@@ -13,6 +13,7 @@ import Combine
 // Ergo, we stuff a bunch of depedencies and global state into it.
 // We'll whittle it down as we create subviews (e.g., the detail view)
 class NYCSVAppState: ObservableObject {
+    
     // The core load state. In a larger app, this would be a class
     // that hides the details of mapping domain data to load state.
     @Published var rootLoadState: LoadState = .launch

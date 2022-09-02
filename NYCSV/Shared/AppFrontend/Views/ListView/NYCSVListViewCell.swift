@@ -7,16 +7,10 @@
 
 import SwiftUI
 
-// This cell actually knows about the list state that it comes from
-// which is a minor breach of the dependency chain. Doing this greatly
-// simplifies communication between the cell and its parent. Another
-// pathway to this functionality is a CellState that has binding to
-// said list state, which queries and updates selection / cell state.
 class ListViewCellState: ObservableObject {
     @Published var isExpanded: Bool = false
     
     func shortSummary(_ pair: SchoolMetaPair) -> String {
-        // Find first setence or first N characters.
         let text = pair.school.overview_paragraph
         let cutoff = 256
         if text.count > cutoff {
