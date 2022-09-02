@@ -7,9 +7,26 @@
 
 import SwiftUI
 
+extension DetailViewState {
+    typealias BlocksList = [(String, [KeyPath<SchoolModel, String?>])]
+    
+    var blockSections: BlocksList {[
+        ("Programs", from: [\.program1,\.program2,\.program3,]),
+        ("Opportunities", from: [\.academicopportunities1,\.academicopportunities2,\.academicopportunities3,]),
+        ("Eligibility", from: [\.eligibility1,\.eligibility2,\.eligibility3,]),
+        ("Interests", from: [\.interest1,\.interest2,\.interest3,]),
+        ("Admissions Priority", from: [\.admissionspriority11,\.admissionspriority12,\.admissionspriority13,]),
+        ("Directions", from: [\.directions1,\.directions2,\.directions3,]),
+        ("Extras", from: [\.school_accessibility_description,\.specialized,\.advancedplacement_courses,\.school_sports,]),
+        ("Contact", from: [\.fax_number,\.community_board,\.school_email,])
+    ];} // Found a compiler bug! Semicolon helps it disambiguate big list above.
+}
+
 class DetailViewState: ObservableObject {
     let metaPair: SchoolMetaPair
     var scores: SATScoreModel? { metaPair.scores }
+    
+    
     
     init(metaPair: SchoolMetaPair) {
         self.metaPair = metaPair
@@ -32,14 +49,18 @@ struct NYCSVDetailView: View {
     @ObservedObject var state: DetailViewState
     
     var body: some View {
-        VStack {
-            headerView
-            wideLine
-            scoreView
-            wideLine
-            Spacer()
-            
-        }.padding(4)
+        ScrollView {
+            VStack(alignment: .center) {
+                headerView
+                wideLine
+                scoreView
+                wideLine
+                extraDetailsView
+                wideLine
+            }.padding([.bottom], 64)
+        }
+        .padding([.leading, .trailing])
+        .ignoresSafeArea(.container, edges: .bottom)
     }
     
     @ViewBuilder
@@ -63,7 +84,16 @@ struct NYCSVDetailView: View {
         } else {
             Text("No SAT scores available")
         }
-        
+    }
+    
+    @ViewBuilder
+    var extraDetailsView: some View {
+        VStack(alignment: .leading) {
+            ForEach(Array(state.blockSections.enumerated()), id: \.offset) { index, section in
+                makeTextBlock(named: section.0, from: section.1)
+                    .padding(4)
+            }
+        }.frame(maxWidth: .infinity)
     }
     
     @ViewBuilder
@@ -80,14 +110,6 @@ struct NYCSVDetailView: View {
         }.padding(8)
     }
     
-    var wideLine: some View {
-        Rectangle()
-            .fill(.gray)
-            .frame(width: .infinity, height: 1)
-    }
-}
-
-extension NYCSVDetailView {
     @ViewBuilder
     func makeTextBlock(
         named blockName: String,
@@ -95,79 +117,23 @@ extension NYCSVDetailView {
     ) -> some View {
         // A nicer way to do this is map the non-nil values first in the view state,
         // and only show non-empty sections.
-        VStack {
+        VStack(alignment: .leading, spacing: 4) {
             Text(blockName).bold()
             ForEach(Array(paths.enumerated()), id: \.offset) { index, path in
                 if let fieldValue = state.metaPair.school[keyPath: path] {
-                    Text(fieldValue)
+                    HStack(alignment: .firstTextBaseline) {
+                        Text("‣")
+                        Text(fieldValue)
+                    }
                 }
             }
         }
     }
     
-    var programBlock: some View {
-        makeTextBlock(named: "Programs", from: [
-            \.program1,
-             \.program2,
-             \.program3
-        ])
-    }
-    
-    var opportunitiesBlock: some View {
-        makeTextBlock(named: "Opportunities", from: [
-            \.academicopportunities1,
-             \.academicopportunities2,
-             \.academicopportunities3,
-        ])
-    }
-    
-    var eligibilityBlock: some View {
-        makeTextBlock(named: "Eligibility", from: [
-            \.eligibility1,
-             \.eligibility2,
-             \.eligibility3,
-        ])
-    }
-    
-    var interestBlock: some View {
-        makeTextBlock(named: "Interests", from: [
-            \.interest1,
-             \.interest2,
-             \.interest3,
-        ])
-    }
-    
-    var priorityBlock: some View {
-        makeTextBlock(named: "Admissions Priority", from: [
-            \.admissionspriority11,
-             \.admissionspriority12,
-             \.admissionspriority13,
-        ])
-    }
-    
-    var directionsBlock: some View {
-        makeTextBlock(named: "Directions", from: [
-            \.directions1,
-             \.directions2,
-             \.directions3,
-        ])
-    }
-    
-    var extraBlocks: some View {
-        makeTextBlock(named: "Extras", from: [
-            \.school_accessibility_description,
-             \.specialized,
-             \.advancedplacement_courses,
-             \.school_sports,
-        ])
-    }
-    
-    var contactBlock: some View {
-        makeTextBlock(named: "Contact", from: [
-            \.fax_number,
-             \.community_board,
-             \.school_email,
-        ])
+    var wideLine: some View {
+        Rectangle()
+            .fill(.gray)
+            .frame(maxWidth: .infinity, maxHeight: 1)
     }
 }
 

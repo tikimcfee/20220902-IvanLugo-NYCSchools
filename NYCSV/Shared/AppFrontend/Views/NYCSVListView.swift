@@ -50,9 +50,9 @@ struct NYCSVListView: View {
     var body: some View {
         NavigationView {
             rootContainerView
+                .navigationTitle("NYC Schools")
                 .padding([.leading, .trailing])
                 .padding([.bottom], 64)
-                .navigationTitle("NYC Schools")
                 .ignoresSafeArea(.container, edges: .bottom)
         }
     }
