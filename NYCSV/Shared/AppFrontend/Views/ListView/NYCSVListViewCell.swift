@@ -85,6 +85,8 @@ struct NYCSVListViewCell: View {
                         .strokeBorder(Color.accentColor)
                 )
             }
+            .buttonStyle(.plain)
+            .foregroundColor(.accentColor)
         }
     }
     

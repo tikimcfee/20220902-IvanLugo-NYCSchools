@@ -153,11 +153,27 @@
 			isa = PBXGroup;
 			children = (
 				B725166B28C04DEA0094F29B /* NYCSVRoot.swift */,
-				B725168728C16CCF0094F29B /* NYCSVListView.swift */,
-				B71D6C6028C263FE009ACF14 /* NYCSVListViewCell.swift */,
-				B71D6C5A28C1878D009ACF14 /* NYCSVDetailView.swift */,
+				B71D6C6328C266E8009ACF14 /* ListView */,
+				B71D6C6428C266F1009ACF14 /* DetailView */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B71D6C6328C266E8009ACF14 /* ListView */ = {
+			isa = PBXGroup;
+			children = (
+				B725168728C16CCF0094F29B /* NYCSVListView.swift */,
+				B71D6C6028C263FE009ACF14 /* NYCSVListViewCell.swift */,
+			);
+			path = ListView;
+			sourceTree = "<group>";
+		};
+		B71D6C6428C266F1009ACF14 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				B71D6C5A28C1878D009ACF14 /* NYCSVDetailView.swift */,
+			);
+			path = DetailView;
 			sourceTree = "<group>";
 		};
 		B725163D28C020A80094F29B /* NYSCV Unit Tests */ = {
