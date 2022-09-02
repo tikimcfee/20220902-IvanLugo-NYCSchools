@@ -49,6 +49,7 @@ struct NYCSVRoot: View {
     func errorView(_ failure: SchoolMetaFetcher.Failure) -> some View {
         VStack {
             Text("😢 Something seems to have gone wrong. Here's what we know:")
+                .multilineTextAlignment(.center)
                 .padding(64)
             VStack(alignment: .leading) {
                 switch failure {
