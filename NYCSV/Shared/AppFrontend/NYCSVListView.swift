@@ -55,7 +55,6 @@ struct NYCSVListView: View {
                 .navigationTitle("NYC Schools")
                 .ignoresSafeArea(.container, edges: .bottom)
         }
-        
     }
     
     var rootContainerView: some View {
@@ -93,7 +92,7 @@ struct NYCSVListView: View {
     
     @ViewBuilder
     func headerView(_ metaPair: SchoolMetaPair) -> some View {
-        HStack {
+        HStack(alignment: .top) {
             VStack(alignment: .leading) {
                 Text(metaPair.school.school_name).bold()
                 Text(metaPair.school.city).fontWeight(.light).italic().font(.subheadline)
@@ -104,12 +103,16 @@ struct NYCSVListView: View {
                 print("Selected: \(metaPair.school.school_name)")
                 listState.selectedSchool = metaPair
             }) {
-                Image(systemName: "info.circle.fill")
-                    .padding()
-                    .background(
-                        RoundedRectangle(cornerRadius: 4.0)
-                            .strokeBorder(Color.accentColor)
-                    )
+                VStack {
+                    Image(systemName: "info.circle.fill")
+                    Text("Info").font(.caption2)
+                }
+                .padding([.leading, .trailing])
+                .padding([.top, .bottom], 4)
+                .background(
+                    RoundedRectangle(cornerRadius: 4.0)
+                        .strokeBorder(Color.accentColor)
+                )
             }
         }
     }
